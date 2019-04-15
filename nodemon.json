@@ -2,6 +2,8 @@
   "env": {
     "DATABASE_URL": "localhost",
     "DATABASE_PORT": 27017,
-    "DATABASE_NAME": "phonebook"
+    "DATABASE_NAME": "phonebook",
+    "API_PORT": 3030,
+    "API_URL": "http://localhost"
   }
 }

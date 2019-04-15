@@ -1,0 +1,25 @@
+{
+  "name": "phonebook-api",
+  "version": "1.0.0",
+  "description": "A sample app built with Node, Express, and Mongo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "mongo",
+    "REST"
+  ],
+  "author": "Rafael Garcia",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}

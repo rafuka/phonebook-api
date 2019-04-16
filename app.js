@@ -6,13 +6,16 @@ const morgan = require('morgan');
 const contactRouter = require('./api/routes/contacts');
 const userRouter = require('./api/routes/users');
 
+const dbConnection = require('./db/connection')();
+
+
 /* =======  MIDDLEWARE  ======= */
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Allow cors
-app.use(() => {
+app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', '*');
 
@@ -37,12 +40,14 @@ app.use((req, res, next) => {
 /* =======  ERROR HANDLING ======= */
 
 app.use((err, req, res, next) => {
+  console.error(err);
   res.status(err.status || 500);
+  if (err.server) console.error(err.server);
   res.json({
     error: {
       message: err.message || 'There was an error.',
       status: err.status
-    }
+    },
   })
 });
 

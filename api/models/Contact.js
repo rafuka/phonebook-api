@@ -16,7 +16,7 @@ const contactSchema = mongoose.Schema({
     required: true
   },
   user_id: {
-    type: mongoose.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: 'User'
   }

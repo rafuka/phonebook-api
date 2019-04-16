@@ -13,7 +13,8 @@ module.exports = function () {
       console.error(err);
       process.exit(1);
     }
-    else {
+
+    if (process.env.NODE_ENV !== 'test') {
       console.log(`Connected successfully to database ${process.env.DATABASE_NAME} at ${process.env.DATABASE_URL}:${process.env.DATABASE_PORT}`);
     }
   });

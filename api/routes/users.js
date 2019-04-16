@@ -1,20 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/:userId', (req, res, next) => {
-  const userId = req.params.userId;
-  res.status(200).json({
-    message: 'Fetch user data',
-    id: userId
-  });
-});
+const userController = require('../controllers/users');
 
-router.post('/', (req, res, next) => {
-
-  res.status(200).json({
-    message: 'Created new user',
-  });
-});
+router.post('/login', userController.login);
+router.post('/signup', userController.signup);
 
 module.exports = router;
 

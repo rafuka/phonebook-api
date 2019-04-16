@@ -45,7 +45,7 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(err.status || 500);
-  if (err.server && process.env.NODE_ENV !== 'test') console.error(err.server);
+  if (err.server) console.error(err.server);
   res.json({
     error: {
       message: err.message || 'There was an error.',

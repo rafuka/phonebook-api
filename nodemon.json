@@ -4,6 +4,7 @@
     "DATABASE_PORT": 27017,
     "DATABASE_NAME": "phonebook",
     "API_PORT": 3030,
-    "API_URL": "http://localhost"
+    "API_URL": "http://localhost",
+    "JWT_KEY": "asupersecretkeynevertobebroken"
   }
 }

@@ -4,19 +4,24 @@
   "description": "A sample app built with Node, Express, and Mongo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "keywords": [
     "express",
     "node",
     "mongo",
-    "REST"
+    "REST",
+    "api"
   ],
   "author": "Rafael Garcia",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.1",
     "morgan": "^1.9.1"
   },
   "devDependencies": {

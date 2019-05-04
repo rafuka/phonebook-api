@@ -10,9 +10,10 @@ module.exports = {
     User.find({ email: userData.email }).exec()
       .then(user => {
         if (user.length < 1) {
-          return res.status(404).json({
-            message: 'The email you provided is not registered in our database'
-          });
+          const error = new Error('The email you provided is not registered in our database');
+          error.status = 404;
+          next(error)
+          
         }
 
         const authUser = user[0];

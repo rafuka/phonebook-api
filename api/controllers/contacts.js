@@ -72,23 +72,23 @@ module.exports = {
             name: contact.name,
             phone: contact.phone,
             address: contact.address,
-            requests: [
-              {
+            requests: {
+              get: {
                 method: 'GET',
                 description: 'Fetch contact data',
                 url: `${FULL_URL}/contacts/${contact._id}`
               },
-              {
+              patch: {
                 method: 'PATCH',
                 description: 'Update/modify contact',
                 url: `${FULL_URL}/contacts/${contact._id}`
               },
-              {
+              delete: {
                 method: 'DELETE',
                 description: 'Delete contact',
                 url: `${FULL_URL}/contacts/${contact._id}`
               }
-            ]
+            }
           }
   
           res.status(200).json(response);
@@ -125,23 +125,23 @@ module.exports = {
             name: contact.name,
             phone: contact.phone,
             address: contact.address,
-            requests: [
-              {
+            requests: {
+              get: {
                 method: 'GET',
                 description: 'Fetch contact data',
                 url: `${FULL_URL}/contacts/${contact._id}`
               },
-              {
+              patch: {
                 method: 'PATCH',
                 description: 'Update/modify contact',
                 url: `${FULL_URL}/contacts/${contact._id}`
               },
-              {
+              delete: {
                 method: 'DELETE',
                 description: 'Delete contact',
                 url: `${FULL_URL}/contacts/${contact._id}`
               }
-            ]
+            }
           }
         }
   
@@ -193,7 +193,6 @@ module.exports = {
         error.server = err;
         next(error);
       });
-  
   },
   deleteContact: (req, res, next) => {
     const id = req.params.contactId;

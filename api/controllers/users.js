@@ -12,8 +12,7 @@ module.exports = {
         if (user.length < 1) {
           const error = new Error('The email you provided is not registered in our database');
           error.status = 404;
-          next(error)
-          
+          return next(error)
         }
 
         const authUser = user[0];
@@ -23,7 +22,7 @@ module.exports = {
             const error = new Error('Couldn\'t login user');
             error.status = 500;
             error.server = err;
-            next(error);
+            return next(error);
           }
 
           if (!match) {
@@ -58,6 +57,7 @@ module.exports = {
 
   signup: (req, res, next) => {
     const userData = req.body;
+
     User.find({ email: userData.email }).exec()
       .then(user => {
         if (user.length >= 1) {
@@ -103,7 +103,7 @@ module.exports = {
               const error = new Error('Couldn\'t create user');
               error.status = 500;
               error.server = err;
-              next(error);
+              return next(error);
             });
         });
       })
